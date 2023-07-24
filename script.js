@@ -34,62 +34,50 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
   playerSelection = prompt("Rock, Paper or Scissors?");
-  playerSelection = playerSelection[0].toUpperCase() + playerSelection.substr(1).toLowerCase(); 
+  playerSelection =
+    playerSelection[0].toUpperCase() + playerSelection.substr(1).toLowerCase();
   computerSelection = getComputerChoice();
-  if (playerSelection === "Rock" && computerSelection === "Paper") {
+  if (
+    (playerSelection === "Rock" && computerSelection === "Paper") ||
+    (playerSelection === "Paper" && computerSelection === "Scissors") ||
+    (playerSelection === "Scissors" && computerSelection === "Rock")
+  ) {
     computerPoints += 1;
-    console.log("Your points: " + playerPoints);
-    console.log("Computer points: " + computerPoints);
-  } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
-    computerPoints += 1;
-    console.log("Your points: " + playerPoints);
-    console.log("Computer points: " + computerPoints);
-  } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
-    computerPoints += 1;
-    console.log("Your points: " + playerPoints);
-    console.log("Computer points: " + computerPoints);
-  } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
-    playerPoints += 1;
-    console.log("Your points: " + playerPoints);
-    console.log("Computer points: " + computerPoints);
-  } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
-    playerPoints += 1;
-    console.log("Your points: " + playerPoints);
-    console.log("Computer points: " + computerPoints);
-  } else if (playerSelection === "Paper" && computerSelection === "Rock") {
-    playerPoints += 1;
-    console.log("Your points: " + playerPoints);
-    console.log("Computer points: " + computerPoints);
-  } else if (playerSelection === "Rock" && computerSelection === "Rock") {
     console.log("Your points: " + playerPoints);
     console.log("Computer points: " + computerPoints);
   } else if (
-    playerSelection === "Scissors" &&
-    computerSelection === "Scissors"
+    (playerSelection === "Rock" && computerSelection === "Scissors") ||
+    (playerSelection === "Scissors" && computerSelection === "Paper") ||
+    (playerSelection === "Paper" && computerSelection === "Rock")
   ) {
+    playerPoints += 1;
     console.log("Your points: " + playerPoints);
     console.log("Computer points: " + computerPoints);
-  } else if (playerSelection === "Paper" && computerSelection === "Paper") {
+  } else if (
+    (playerSelection === "Rock" && computerSelection === "Rock") ||
+    (playerSelection === "Scissors" && computerSelection === "Scissors") ||
+    (playerSelection === "Paper" && computerSelection === "Paper")
+  ) {
     console.log("Your points: " + playerPoints);
     console.log("Computer points: " + computerPoints);
   } else {
     console.log("Invalid input.");
-  } 
+  }
 }
 
 function game() {
-   playRound(playerSelection, computerSelection); 
-   playRound(playerSelection, computerSelection); 
-   playRound(playerSelection, computerSelection); 
-   playRound(playerSelection, computerSelection); 
-   playRound(playerSelection, computerSelection); 
-   if (playerPoints > computerPoints) {
+  playRound(playerSelection, computerSelection);
+  playRound(playerSelection, computerSelection);
+  playRound(playerSelection, computerSelection);
+  playRound(playerSelection, computerSelection);
+  playRound(playerSelection, computerSelection);
+  if (playerPoints > computerPoints) {
     console.log("You've won the game!");
-   } else if (computerPoints > playerPoints) {
+  } else if (computerPoints > playerPoints) {
     console.log("You've lost the game!");
-   } else {
+  } else {
     console.log("The game's a draw!");
-   }
+  }
 }
 
 game();
