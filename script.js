@@ -2,7 +2,7 @@
 // Output randomly one of the three
 // If player won, add one point to the player
 // If computer won, add one point to the computer
-// If one of the scores equals five, output winner to the console
+// If five rounds had been played, output winner to the console
 // Restart the game
 
 // Rock > Scissors
